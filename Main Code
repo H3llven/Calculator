@@ -1,0 +1,203 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Calculator
+{
+    public partial class Form1 : Form
+    {
+        String input = string.Empty;    //storing input(s)
+        String op1 = string.Empty;      //store operation 1
+        String op2 = string.Empty;      //store operation 2
+        char op;                        //char input for operators
+        double calc = 0.0;           //input results (? i forgor)
+
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void b0_Click(object sender, EventArgs e)
+        {
+            this.Result.Text = "";
+            input += "0";
+            this.Result.Text = input;
+        }
+
+        private void b1_Click(object sender, EventArgs e)
+        {
+            this.Result.Text = "";
+            input += "1";
+            this.Result.Text = input;
+        }
+
+        private void b2_Click(object sender, EventArgs e)
+        {
+            this.Result.Text = "";
+            input += "2";
+            this.Result.Text += input;
+        }
+
+        private void b3_Click(object sender, EventArgs e)
+        {
+            this.Result.Text = "";
+            input += "3";
+            this.Result.Text += input;
+        }
+
+        private void b4_Click(object sender, EventArgs e)
+        {
+            this.Result.Text = "";
+            input += "4";
+            this.Result.Text += input;
+        }
+
+        private void b5_Click(object sender, EventArgs e)
+        {
+            this.Result.Text = "";
+            input += "5";
+            this.Result.Text += input;
+        }
+
+        private void b6_Click(object sender, EventArgs e)
+        {
+            this.Result.Text = "";
+            input += "6";
+            this.Result.Text += input;
+        }
+
+        private void b7_Click(object sender, EventArgs e)
+        {
+            this.Result.Text = "";
+            input += "7";
+            this.Result.Text += input;
+        }
+
+        private void b8_Click(object sender, EventArgs e)
+        {
+            this.Result.Text = "";
+            input += "8";
+            this.Result.Text += input;
+        }
+
+        private void b9_Click(object sender, EventArgs e)
+        {
+            this.Result.Text = "";
+            input += "9";
+            this.Result.Text += input;
+        }
+
+        private void Decimal_Click(object sender, EventArgs e)
+        {
+            this.Result.Text = "";
+            input += ".";
+            this.Result.Text += input;
+        }
+
+        private void Plus_Click(object sender, EventArgs e)
+        {
+            op1 = input;
+            op = '+';
+            input = string.Empty;
+        }
+
+        private void Minus_Click(object sender, EventArgs e)
+        {
+            op1 = input;
+            op = '-';
+            input = string.Empty;
+        }
+
+        private void Multiply_Click(object sender, EventArgs e)
+        {
+            op1 = input;
+            op = 'x';
+            input = string.Empty;
+        }
+
+        private void Divide_Click(object sender, EventArgs e)
+        {
+            op1 = input;
+            op = '/';
+            input = string.Empty;
+        }
+
+        private void Clear_Click(object sender, EventArgs e)
+        {
+            this.Result.Text = "";
+            this.input = string.Empty;
+            this.op1 = string.Empty;
+            this.op2 = string.Empty;
+        }
+
+        private void Proceed_Click(object sender, EventArgs e)
+        {
+            op2 = input;
+            double pluh1, pluh2;
+            double.TryParse(op1, out pluh1);
+            double.TryParse(op2, out pluh2);
+
+            if (op == '+')
+            {
+                calc = pluh1 + pluh2;
+                Result.Text = calc.ToString();
+            }
+            else if (op == '-')
+            {
+                calc = pluh1 - pluh2;
+                Result.Text = calc.ToString();
+            }
+            else if (op == 'x')
+            {
+                calc = pluh1 * pluh2;
+                Result.Text = calc.ToString();
+            }
+            else if (op == '/')
+            {
+                if (op != '0')
+                {
+                    calc = pluh1 / pluh2;
+                    Result.Text = calc.ToString();
+                }
+                else 
+                { 
+                    Result.Text = "bro, you cant divide 0 ;-;"; 
+                }
+            }
+        }
+
+        private void Goofy_CheckedChanged(object sender, EventArgs e)
+        {
+            Result.Text = "Whats 9 + 10?";        }
+
+        private void Result_Hover(object sender, EventArgs e)
+        {
+            Result.BackColor = Color.Crimson;
+            Result.Text = "GO CALCULATE BOI";
+        }
+
+        private void Result_Leave(object sender, EventArgs e)
+        {
+            Result.BackColor = Color.Linen;
+            this.Result.Text = "";
+            this.Result.Text += input;
+        }
+
+        private void nerd_Hover(object sender, EventArgs e)
+        {
+            nerd.BackColor = Color.Yellow;
+            nerd.Text = "nerd alert, Yes?";
+        }
+
+        private void nerd_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+    }
